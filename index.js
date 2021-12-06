@@ -9,6 +9,7 @@ const requestLogger = (request, response, next) => {
 }
 const cors = require('cors');
 
+app.use(express.static('build'))
 app.use(cors())
 app.use(express.json())
 app.use(requestLogger)
