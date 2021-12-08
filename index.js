@@ -1,13 +1,13 @@
 require('dotenv').config();
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const requestLogger = (request, response, next) => {
   console.log('Method:', request.method);
   console.log('Path:', request.path);
   console.log('Body:', request.body);
   console.log('---');
   next();
-}
+};
 const cors = require('cors');
 const Note = require('./models/note');
 const errorHandler = (error, request, response, next) => {
@@ -19,7 +19,7 @@ const errorHandler = (error, request, response, next) => {
     return response.status(400).json({ error: error.message });
   }
   next(error);
-}
+};
 
 
 // middleware (middleware to execute last further below)
